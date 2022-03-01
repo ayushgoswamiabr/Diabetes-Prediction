@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, render_template
 import pickle
-import random
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -23,12 +22,12 @@ def predict():
     output = model.predict(df)
         
     if output == 1:
-        res_val = "Diabetes"
+        res_val = "Patient has Diabetes"
     else:
-        res_val = "no Diabetes"
+        res_val = "Patient does not have Diabetes"
         
 
-    return render_template('submit.html', prediction_text='Patient has {}'.format(res_val),glucose=input_features[1],age=input_features[7],bloodpressure=input_features[2],skinthickness=input_features[3],insulin=input_features[4],bmi=input_features[5],diabetespedigreefunction=input_features[6],pregnencies=input_features[0],accuracy='The Accuracy is {}%'.format(round(random.uniform(85, 98), 2)))
+    return render_template('submit.html', prediction_text=res_val,glucose=input_features[1],age=input_features[7],bloodpressure=input_features[2],skinthickness=input_features[3],insulin=input_features[4],bmi=input_features[5],diabetespedigreefunction=input_features[6],pregnencies=input_features[0])
 
 if __name__ == "__main__":
     app.run(debug=True)

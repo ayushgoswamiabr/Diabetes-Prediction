@@ -19,7 +19,7 @@
       }
       @media only screen and (min-width: 1000px) {
         body {
-          background-image: url("../static/background.jpg");
+          background-color: #0093E9;
           background-size: 100%;
           background-repeat: no-repeat;
           margin: 0px;
@@ -55,6 +55,7 @@
                   class="form-control"
                   name="Pregnancies"
                   required="required"
+                  type="number"
                 />
               </div>
             </div>
@@ -66,7 +67,8 @@
                   class="form-control"
                   name="Glucose"
                   required="required"
-                  placeholder="120"
+                  placeholder="140"
+                  type="number"
                 />
               </div>
             </div>
@@ -78,7 +80,8 @@
                   class="form-control"
                   name="BloodPressure"
                   required="required"
-                  placeholder="69"
+                  placeholder="80"
+                  type="number"
                 />
               </div>
             </div>
@@ -91,6 +94,7 @@
                   name="SkinThickness"
                   required="required"
                   placeholder="20"
+                  type="number"
                 />
               </div>
             </div>
@@ -102,7 +106,8 @@
                   class="form-control"
                   name="Insulin"
                   required="required"
-                  placeholder="79"
+                  placeholder="8.8"
+                  type="number"
                 />
               </div>
             </div>
@@ -114,21 +119,23 @@
                   class="form-control"
                   name="BMI"
                   required="required"
-                  placeholder="32"
+                  placeholder="25"
+                  type="number"
                 />
               </div>
             </div>
 
             <div class="form-group col-lg-3 col-sm-12">
               <label class="col-12 col-form-label texte"
-                >DiabetesPedigreeFunction</label
+                >Family History</label
               >
               <div class="col-12">
                 <input
                   class="form-control"
-                  name="DiabetesPedigreeFunction"
+                  name="Family History"
                   required="required"
                   placeholder="0.5"
+                  type="number"
                 />
               </div>
             </div>
@@ -141,6 +148,7 @@
                   name="Age"
                   required="required"
                   placeholder="35"
+                  type="number"
                 />
               </div>
             </div>
@@ -158,11 +166,24 @@
       <center>
         <h1 style="color: black">{{ prediction_text }}</h1>
       </center>
-      <center>
-        <h1 style="color: black">{{ accuracy }}</h1>
-      </center>
+     
     </div>
     {% if prediction_text == 'Patient has Diabetes' %}
+    <center><h1 style="color: black">The Risk Factor of Diabetes is due to Higher level of</h1></center></center>
+    <div class="col-7 mx-auto mb-5">
+    <ul class="list-group list-group-flush">
+        {% if glucose>=140 %}
+        <li class="list-group-item">Glucose</li>
+        {% endif %} {% if skinthickness>=20 %}
+        <li class="list-group-item">Skin Thickness</li>
+        {% endif %} {% if insulin>=8.8 %}
+        <li class="list-group-item">Insulin</li>
+        {% endif %} {% if bmi>=25 %}
+        <li class="list-group-item">BMI</li>
+        {% endif %} 
+    </ul>
+  </div>
+    <div class="col-7 mx-auto">
     <table class="table table-dark table-responsive">
       <thead>
         <tr>
@@ -172,16 +193,16 @@
         </tr>
       </thead>
       <tbody>
-        {% if glucose>=120 %}
+        {% if glucose>=140 %}
         <tr>
           <td>Glucose</td>
-          <td>120</td>
+          <td>140</td>
           <td>{{glucose}}</td>
         </tr>
-        {% endif %} {% if bloodpressure>=69 %}
+        {% endif %} {% if bloodpressure>=80 %}
         <tr>
           <td>Blood Pressure</td>
-          <td>69</td>
+          <td>80</td>
           <td>{{bloodpressure}}</td>
         </tr>
         {% endif %} {% if skinthickness>=20 %}
@@ -190,21 +211,21 @@
           <td>20</td>
           <td>{{skinthickness}}</td>
         </tr>
-        {% endif %} {% if insulin>=79 %}
+        {% endif %} {% if insulin>=8.8 %}
         <tr>
           <td>Insulin</td>
-          <td>79</td>
+          <td>8.8</td>
           <td>{{insulin}}</td>
         </tr>
-        {% endif %} {% if bmi>=32 %}
+        {% endif %} {% if bmi>=25 %}
         <tr>
           <td>BMI</td>
-          <td>32</td>
+          <td>25</td>
           <td>{{bmi}}</td>
         </tr>
         {% endif %} {% if diabetespedigreefunction>=0.5 %}
         <tr>
-          <td>Diabetes Pedigree Function</td>
+          <td>Family History</td>
           <td>0.5</td>
           <td>{{diabetespedigreefunction}}</td>
         </tr>
@@ -217,24 +238,7 @@
         {% endif %}
       </tbody>
     </table>
-    <center><h1 style="color: black">The Cause of Diabetes is due to Higher level of</h1></center></center>
-    <ul class="list-group list-group-flush">
-        {% if glucose>=120 %}
-        <li class="list-group-item">Glucose</li>
-        {% endif %} {% if bloodpressure>=69 %}
-            <li class="list-group-item">Blood Pressure</li>
-        {% endif %} {% if skinthickness>=20 %}
-        <li class="list-group-item">Skin Thickness</li>
-        {% endif %} {% if insulin>=79 %}
-        <li class="list-group-item">Insulin</li>
-        {% endif %} {% if bmi>=32 %}
-        <li class="list-group-item">BMI</li>
-        {% endif %} {% if diabetespedigreefunction>=0.5 %}
-        <li class="list-group-item">Diabetes Pedigree Function</li>
-        {% endif %} {% if age>=35 %}
-        <li class="list-group-item">Age</li>
-        {% endif %}
-    </ul>
+  </div>
     {% endif %}
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
