@@ -15,16 +15,20 @@
       }
       h1,
       .texte {
-        color: white;
+        color: #000;
+      }
+      h1 {
+        font-size: 2rem;
       }
       @media only screen and (min-width: 1000px) {
         body {
-          background-color: #0093E9;
+          background: linear-gradient(119.36deg, #3d9989 0%, #5ab1e2 100%);
           background-size: 100%;
           background-repeat: no-repeat;
           margin: 0px;
           padding: 0px;
           width: 100%;
+          height: 100%;
           max-width: 100%;
         }
       }
@@ -35,131 +39,134 @@
     <div
       class="container"
       style="
-        background-color: rgba(0, 0, 0, 0.7);
-        margin-top: 130px;
+        background-color: #fff;
+        margin-top: 50px;
         padding: 20px;
+        width: 30%;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        color: #000;
       "
     >
-      <div class="row">
-        <div class="col-12">
-          <h1 style="text-align: center; margin-bottom: 30px">
-            Predicting Diabetes using Pipelined Model
-          </h1>
-        </div>
-        <form action="{{ url_for('predict')}}" method="post">
-          <div class="row">
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">Pregnancies</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="Pregnancies"
-                  required="required"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">Glucose</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="Glucose"
-                  required="required"
-                  placeholder="140"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">BloodPressure</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="BloodPressure"
-                  required="required"
-                  placeholder="80"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">SkinThickness</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="SkinThickness"
-                  required="required"
-                  placeholder="20"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">Insulin</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="Insulin"
-                  required="required"
-                  placeholder="8.8"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">BMI</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="BMI"
-                  required="required"
-                  placeholder="25"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte"
-                >Family History</label
-              >
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="Family History"
-                  required="required"
-                  placeholder="0.5"
-                  type="number"
-                />
-              </div>
-            </div>
-
-            <div class="form-group col-lg-3 col-sm-12">
-              <label class="col-12 col-form-label texte">Age</label>
-              <div class="col-12">
-                <input
-                  class="form-control"
-                  name="Age"
-                  required="required"
-                  placeholder="35"
-                  type="number"
-                />
-              </div>
-            </div>
-            <div class="col-lg-12" style="text-align: right">
-              <button type="submit" class="btn btn-primary text-right">
-                Submit
-              </button>
+    <div class="form-row">
+      <div class="">
+        <h1 style="text-align: center; margin-bottom: 30px">
+          Diabetes Prediction With Risk Factors
+        </h1>
+      </div>
+      <form action="{{ url_for('predict')}}" method="post">
+        <div class="form-row">
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">Pregnancies</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="Pregnancies"
+                required="required"
+                type="number"
+              />
             </div>
           </div>
-        </form>
-      </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">Glucose</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="Glucose"
+                required="required"
+                placeholder="140"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">BloodPressure</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="BloodPressure"
+                required="required"
+                placeholder="80"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">SkinThickness</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="SkinThickness"
+                required="required"
+                placeholder="20"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">Insulin</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="Insulin"
+                required="required"
+                placeholder="8.8"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">BMI</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="BMI"
+                required="required"
+                placeholder="25"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">Family History</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="Family History"
+                required="required"
+                placeholder="0.5"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-lg-12 col-sm-12">
+            <label class="col-12 col-form-label texte">Age</label>
+            <div class="col-12">
+              <input
+                class="form-control"
+                name="Age"
+                required="required"
+                placeholder="35"
+                type="number"
+              />
+            </div>
+          </div>
+          <div class="col-lg-12" style="text-align: right">
+            <button type="submit" class="btn btn-primary text-right">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
     </div>
 
     <div style="margin-top: 20px">

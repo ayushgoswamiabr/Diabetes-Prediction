@@ -30,4 +30,4 @@ def predict():
     return render_template('submit.html', prediction_text=res_val,glucose=input_features[1],age=input_features[7],bloodpressure=input_features[2],skinthickness=input_features[3],insulin=input_features[4],bmi=input_features[5],diabetespedigreefunction=input_features[6],pregnencies=input_features[0])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
