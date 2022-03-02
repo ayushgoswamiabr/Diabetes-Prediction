@@ -20,7 +20,19 @@ def predict():
     
     df = pd.DataFrame(features_value, columns=features_name)
     output = model.predict(df)
-        
+
+    if output == 0 and input_features[1]>=140:
+        output=1
+    
+    if output == 0 and input_features[4]>=8.8:
+        output=1
+    
+    if output == 0 and input_features[7]>=1:
+        output=1
+
+    if output == 0 and input_features[5]>=25:
+        output=1
+
     if output == 1:
         res_val = "Patient has Diabetes"
     else:

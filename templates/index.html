@@ -15,14 +15,11 @@
       }
       h1,
       .texte {
-        color: #000;
-      }
-      h1 {
-        font-size: 2rem;
+        color: white;
       }
       @media only screen and (min-width: 1000px) {
         body {
-          background: linear-gradient(119.36deg, #3d9989 0%, #5ab1e2 100%);
+          background-image: url("../static/img-1.jpg");
           background-size: 100%;
           background-repeat: no-repeat;
           margin: 0px;
@@ -36,131 +33,169 @@
   </head>
 
   <body>
-    <div
-      class="container"
-      style="
-        background-color: #fff;
-        margin-top: 50px;
-        padding: 20px;
-        width: 30%;
-        border-radius: 30px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        color: #000;
-      "
-    >
-      <div class="form-row">
-        <div class="">
-          <h1 style="text-align: center; margin-bottom: 30px">
-            Diabetes Prediction With Risk Factors
+    <div class="container" style="margin-top: 156px; padding: 20px">
+      <div class="row">
+        <div class="col-12" style="background-color: 0">
+          <h1 style="text-align: center; color: white">
+            Predicting Diabetes With Risk Factors
           </h1>
         </div>
         <form action="{{ url_for('predict')}}" method="post">
-          <div class="form-row">
-            <div class="form-group col-lg-12 col-sm-12">
-              <label class="col-12 col-form-label texte">Pregnancies</label>
+          <div class="row">
+            <div class="form-group col-lg-3 col-sm-12">
+              <label
+                class="col-12 col-form-label texte"
+                style="color: white; font-weight: bold"
+                >Pregnancies</label
+              >
               <div class="col-12">
                 <input
                   class="form-control"
                   name="Pregnancies"
+                  placeholder="No.of Pregnancies Eg(0-20)"
+                  min="0"
+                  max="20"
                   required="required"
                   type="number"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
-              <label class="col-12 col-form-label texte">Glucose</label>
+            <div class="form-group col-lg-3 col-sm-12">
+              <label
+                class="col-12 col-form-label texte"
+                style="color: white; font-weight: bold"
+                >Glucose</label
+              >
               <div class="col-12">
                 <input
                   class="form-control"
                   name="Glucose"
                   required="required"
-                  placeholder="140"
+                  placeholder="Enter Glucose level Eg(140)"
+                  min="70"
+                  max="200"
                   type="number"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
-              <label class="col-12 col-form-label texte">BloodPressure</label>
+            <div class="form-group col-lg-3 col-sm-12">
+              <label
+                class="col-12 col-form-label texte"
+                style="color: white; font-weight: bold"
+                >BloodPressure</label
+              >
               <div class="col-12">
                 <input
                   class="form-control"
                   name="BloodPressure"
                   required="required"
-                  placeholder="80"
+                  placeholder="Enter Blood Pressure Eg(80)"
+                  min="50"
+                  max="200"
                   type="number"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
-              <label class="col-12 col-form-label texte">SkinThickness</label>
+            <div class="form-group col-lg-3 col-sm-12">
+              <label
+                class="col-12 col-form-label texte"
+                style="color: white; font-weight: bold"
+                >SkinThickness</label
+              >
               <div class="col-12">
                 <input
                   class="form-control"
                   name="SkinThickness"
                   required="required"
-                  placeholder="20"
+                  placeholder="Enter Skin Thickness Eg(1-4)"
+                  min="1"
+                  max="5"
                   type="number"
+                  step="any"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
-              <label class="col-12 col-form-label texte">Insulin</label>
+            <div class="form-group col-lg-3 col-sm-12">
+              <label
+                class="col-12 col-form-label texte"
+                style="color: white; font-weight: bold"
+                >Insulin</label
+              >
               <div class="col-12">
                 <input
                   class="form-control"
                   name="Insulin"
                   required="required"
-                  placeholder="8.8"
+                  placeholder="Enter Insulin level Eg(8)"
+                  min="3"
+                  max="28"
                   type="number"
+                  step="any"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
+            <div
+              class="form-group col-lg-3 col-sm-12"
+              style="color: white; font-weight: bold"
+            >
               <label class="col-12 col-form-label texte">BMI</label>
               <div class="col-12">
                 <input
                   class="form-control"
                   name="BMI"
                   required="required"
-                  placeholder="25"
+                  placeholder="Enter BMI level Eg(18)"
+                  min="18"
+                  max="40"
                   type="number"
+                  step="any"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
+            <div
+              class="form-group col-lg-3 col-sm-12"
+              style="color: white; font-weight: bold"
+            >
               <label class="col-12 col-form-label texte">Family History</label>
               <div class="col-12">
                 <input
                   class="form-control"
                   name="Family History"
                   required="required"
-                  placeholder="0.5"
+                  placeholder="Enter Family History Eg(0 or 1)"
+                  min="0"
+                  max="1"
                   type="number"
                 />
               </div>
             </div>
 
-            <div class="form-group col-lg-12 col-sm-12">
-              <label class="col-12 col-form-label texte">Age</label>
+            <div class="form-group col-lg-3 col-sm-12">
+              <label
+                class="col-12 col-form-label texte"
+                style="color: white; font-weight: bold"
+                >Age</label
+              >
               <div class="col-12">
                 <input
                   class="form-control"
                   name="Age"
                   required="required"
-                  placeholder="35"
+                  placeholder="Enter Age Eg(1-100)"
+                  min="1"
+                  max="100"
                   type="number"
                 />
               </div>
             </div>
-            <div class="col-lg-12" style="text-align: right">
-              <button type="submit" class="btn btn-primary text-right">
+            <div class="col-lg-12" style="text-align: center">
+              <button type="submit" class="btn btn-warning text-right">
                 Submit
               </button>
             </div>
